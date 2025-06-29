@@ -92,15 +92,5 @@
     "C_Cpp.dimInactiveRegions": false,
     "editor.minimap.maxColumn": 80,
     "editor.wordWrap": "wordWrapColumn",
-    "editor.wordWrapColumn": 100,
-    "idf.espIdfPath": "/home/ehsan/Documents/ehsan/espressif-all/v5.4.1/esp-idf",
-    "idf.pythonBinPath": "/home/ehsan/.espressif/python_env/idf5.4_py3.12_env/bin/python",
-    "idf.toolsPath": "/home/ehsan/.espressif",
-    "idf.customExtraPaths": "/home/ehsan/.espressif/tools/xtensa-esp-elf-gdb/14.2_20240403/xtensa-esp-elf-gdb/bin:/home/ehsan/.espressif/tools/riscv32-esp-elf-gdb/14.2_20240403/riscv32-esp-elf-gdb/bin:/home/ehsan/.espressif/tools/xtensa-esp-elf/esp-14.2.0_20241119/xtensa-esp-elf/bin:/home/ehsan/.espressif/tools/riscv32-esp-elf/esp-14.2.0_20241119/riscv32-esp-elf/bin:/home/ehsan/.espressif/tools/esp32ulp-elf/2.38_20240113/esp32ulp-elf/bin:/home/ehsan/.espressif/tools/cmake/3.30.2/bin:/home/ehsan/.espressif/tools/openocd-esp32/v0.12.0-esp32-20241016/openocd-esp32/bin:/home/ehsan/.espressif/tools/ninja/1.12.1:/home/ehsan/.espressif/tools/esp-rom-elfs/20241011",
-    "idf.customExtraVars": {
-        "OPENOCD_SCRIPTS": "/home/ehsan/.espressif/tools/openocd-esp32/v0.12.0-esp32-20241016/openocd-esp32/share/openocd/scripts",
-        "ESP_ROM_ELF_DIR": "/home/ehsan/.espressif/tools/esp-rom-elfs/20241011/"
-    },
-    "idf.gitPath": "/usr/bin/git",
-    "idf.pythonInstallPath": "/usr/bin/python3"
+    "editor.wordWrapColumn": 100
 }
