@@ -8,7 +8,6 @@
 
 #include "ServiceMngr.hpp"
 #include "Singleton.hpp"
-#include "MatterCoffeeMaker.hpp"
 #include "BSP.h"
 
 static TaskHandle_t SrvMngHandle;
