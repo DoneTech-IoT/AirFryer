@@ -5,7 +5,7 @@
 #include "UICoffeeMaker.hpp"
 #endif
 #ifdef CONFIG_DONE_COMPONENT_MATTER
-#include "MatterCoffeeMaker.hpp"
+#include "MatterAirFryer.hpp"
 #else
 #include "esp_netif.h"
 #include "protocol_examples_common.h"
@@ -69,7 +69,7 @@ private:
 #endif  
 #ifdef CONFIG_DONE_COMPONENT_MATTER
     static TaskHandle_t MatterHandle;
-    static std::shared_ptr<MatterCoffeeMaker>matterCoffeeMaker;
+    static std::shared_ptr<MatterAirFryer>matterAirFryer;
 #endif
 #ifdef CONFIG_DONE_COMPONENT_MQTT
     static TaskHandle_t MQTTHandle;

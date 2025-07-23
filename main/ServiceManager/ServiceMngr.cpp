@@ -15,7 +15,7 @@ std::shared_ptr<UICoffeeMaker> ServiceMngr::uiCoffeeMaker;
 #endif  
 #ifdef CONFIG_DONE_COMPONENT_MATTER
 TaskHandle_t ServiceMngr::MatterHandle = nullptr;
-std::shared_ptr<MatterCoffeeMaker> ServiceMngr::matterCoffeeMaker;
+std::shared_ptr<MatterAirFryer> ServiceMngr::matterAirFryer;
 #endif
 #ifdef CONFIG_DONE_COMPONENT_MQTT
 TaskHandle_t ServiceMngr::MQTTHandle = nullptr;
@@ -98,12 +98,12 @@ esp_err_t ServiceMngr::OnMachineStateStart()
 #endif //CONFIG_DONE_COMPONENT_LVGL
 
 #ifdef CONFIG_DONE_COMPONENT_MATTER 
-    matterCoffeeMaker = Singleton<MatterCoffeeMaker, const char*, SharedBus::ServiceID>::
+    matterAirFryer = Singleton<MatterAirFryer, const char*, SharedBus::ServiceID>::
                             GetInstance(static_cast<const char*>
                             (mServiceName[SharedBus::ServiceID::MATTER]), 
                             SharedBus::ServiceID::MATTER);    
     
-    err = matterCoffeeMaker->TaskInit(
+    err = matterAirFryer->TaskInit(
             &MatterHandle,
             tskIDLE_PRIORITY + 1,
             mServiceStackSize[SharedBus::ServiceID::MATTER]);
