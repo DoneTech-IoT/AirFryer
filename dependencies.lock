@@ -27,7 +27,7 @@ dependencies:
       type: service
     version: 0.0.11
   espressif/esp_delta_ota:
-    component_hash: 3004a153daac7c5cec4083411a9fb5daa67005d1a7a384fa84123bfeebd1fdfd
+    component_hash: 77930340dfec69b8bcd39216a470624821549012f1651fa753f1b10105977c8c
     dependencies:
     - name: idf
       require: private
@@ -35,7 +35,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 1.1.1
+    version: 1.1.2
   espressif/esp_diag_data_store:
     component_hash: c1e5cf62f545d2b136db299f4df1b228b9840be5bc3410c9ad2d2a882b5c0d64
     dependencies:
@@ -99,7 +99,7 @@ dependencies:
       type: service
     version: 1.2.2
   espressif/esp_jpeg:
-    component_hash: 14c7335ea46c9ba51af8222ce7c31fe8c4f3417bece0287fdb4152f81cb6af95
+    component_hash: defb83669293cbf86d0fa86b475ba5517aceed04ed70db435388c151ab37b5d7
     dependencies:
     - name: idf
       require: private
@@ -107,7 +107,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 1.2.1
+    version: 1.3.1
   espressif/esp_rcp_update:
     component_hash: c10afbd54a17f27eed880e61262b161656e6d36ad63376c307f9273e99d0abcd
     dependencies:
@@ -123,7 +123,7 @@ dependencies:
       type: service
     version: 1.2.0
   espressif/esp_secure_cert_mgr:
-    component_hash: 5d9175b416f751ba6a7cb35bdf092f0af85658ce06c4a592c7c541d8017ebeb9
+    component_hash: 95b490db6944b2a6b32d7af172bb52e5045fe1d37ac8e00f9edfdd0535d64f72
     dependencies:
     - name: idf
       require: private
@@ -131,7 +131,7 @@ dependencies:
     source:
       registry_url: https://components.espressif.com/
       type: service
-    version: 2.5.0
+    version: 2.5.1
   espressif/jsmn:
     component_hash: d80350c41bbaa827c98a25b6072df00884e72f54885996fab4a4f0aebce6b6c3
     dependencies:
@@ -180,23 +180,16 @@ dependencies:
       type: service
     version: 1.8.2
   espressif/rmaker_common:
-    component_hash: a3a1df881278d0351fc850b77792fe8a196ddd6dcacbea203d606329cc6a0239
+    component_hash: f8e531264d62cf01ea1bcc80d7436e09e5819132056ca22c3869f5b0e2000c13
     dependencies: []
     source:
       registry_url: https://components.espressif.com
       type: service
-    version: 1.4.6
+    version: 1.4.12
   idf:
     source:
       type: idf
-    version: 5.4.1
-  lvgl/lvgl:
-    component_hash: d7c1ac037ae6e85d94897f807d6e7ba0946a83e720074fc95a4f6241da9f9f53
-    dependencies: []
-    source:
-      registry_url: https://components.espressif.com/
-      type: service
-    version: 8.4.0
+    version: 5.4.2
 direct_dependencies:
 - espressif/button
 - espressif/esp_delta_ota
@@ -209,7 +202,6 @@ direct_dependencies:
 - espressif/json_parser
 - espressif/led_strip
 - espressif/mdns
-- lvgl/lvgl
-manifest_hash: 131da9e7c4546a5b640f89954bb4a7155e6d6fc3d92702d185182f6f074e7221
+manifest_hash: 2bac7bc193674f60a86fcac6c91b7a7dbb149076eef76989801ad9d83cb5bd11
 target: esp32s3
 version: 2.0.0
