@@ -141,19 +141,6 @@ esp_err_t ServiceMngr::OnMachineStateStart()
         ESP_LOGE(TAG, "failed to create %s service.",
                  mServiceName[SharedBus::ServiceID::MQTT]);
     }
-    //TODO write Sharedbus::Send here
-    // AirFryerPacket airFryerPacket = {
-    //     .WattSet = EXAMPLE_WATT_1,
-    //     .PowerSet = MAX_POWER,
-    //     .CookTime = 5,
-    //     .CookMode = MODE_DEFROST
-    // };
-    // SharedBus::gPacket.SourceID = SharedBus::ServiceID::SERVICE_MANAGER;
-    // SharedBus::gPacket.PacketID = AIR_FRYER_PACKET_ID;
-    // memcpy(SharedBus::gPacket.data, &airFryerPacket,
-    //        sizeof(airFryerPacket));
-    // SharedBus::Send(SharedBus::gPacket);
-
 #endif // CONFIG_DONE_COMPONENT_MQTT
 
     return err;
