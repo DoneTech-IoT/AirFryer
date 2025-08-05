@@ -5,6 +5,7 @@
 #include "ServiceMngr.hpp"
 #include "Singleton.hpp"
 #include "SpiffsManager.h"
+#include "SharedBus.hpp"
 
 static const char* TAG = "ServiceMngr";
 TaskHandle_t ServiceMngr::SrvMngHandle = nullptr;
@@ -19,7 +20,7 @@ std::shared_ptr<MatterAirFryer> ServiceMngr::matterAirFryer;
 #endif
 #ifdef CONFIG_DONE_COMPONENT_MQTT
 TaskHandle_t ServiceMngr::MQTTHandle = nullptr;
-std::shared_ptr<MQTTCoffeeMaker> ServiceMngr::mqttCoffeeMakerApp;
+std::shared_ptr<MQTTAirFryer> ServiceMngr::mqttAirFryerApp;
 #endif
 
 #include "esp_heap_caps.h"
@@ -121,11 +122,11 @@ esp_err_t ServiceMngr::OnMachineStateStart()
 #endif // CONFIG_DONE_COMPONENT_MATTER
 
 #ifdef CONFIG_DONE_COMPONENT_MQTT
-    mqttCoffeeMakerApp = Singleton<MQTTCoffeeMaker, const char *, SharedBus::ServiceID>::
+    mqttAirFryerApp = Singleton<MQTTAirFryer, const char *, SharedBus::ServiceID>::
         GetInstance(static_cast<const char *>(mServiceName[SharedBus::ServiceID::MQTT]),
                     SharedBus::ServiceID::MQTT);
 
-    err = mqttCoffeeMakerApp->TaskInit(
+    err = mqttAirFryerApp->TaskInit(
         &MQTTHandle,
         tskIDLE_PRIORITY + 1,
         mServiceStackSize[SharedBus::ServiceID::MQTT]);
@@ -140,6 +141,19 @@ esp_err_t ServiceMngr::OnMachineStateStart()
         ESP_LOGE(TAG, "failed to create %s service.",
                  mServiceName[SharedBus::ServiceID::MQTT]);
     }
+    //TODO write Sharedbus::Send here
+    // AirFryerPacket airFryerPacket = {
+    //     .WattSet = EXAMPLE_WATT_1,
+    //     .PowerSet = MAX_POWER,
+    //     .CookTime = 5,
+    //     .CookMode = MODE_DEFROST
+    // };
+    // SharedBus::gPacket.SourceID = SharedBus::ServiceID::SERVICE_MANAGER;
+    // SharedBus::gPacket.PacketID = AIR_FRYER_PACKET_ID;
+    // memcpy(SharedBus::gPacket.data, &airFryerPacket,
+    //        sizeof(airFryerPacket));
+    // SharedBus::Send(SharedBus::gPacket);
+
 #endif // CONFIG_DONE_COMPONENT_MQTT
 
     return err;
