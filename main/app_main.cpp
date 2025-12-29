@@ -10,9 +10,9 @@
 #include "Singleton.hpp"
 #include "BSP.h"
 
-static TaskHandle_t SrvMngHandle;
-static std::shared_ptr<ServiceMngr> serviceMngr;
+#include "ServiceRegistration.hpp"
 
+static std::shared_ptr<ServiceMngr> serviceMngr;
 // Define the heartbeat pattern in milliseconds
 const int HeartbeatPattern[] = {
     200, // First "lub" (on time)
@@ -21,13 +21,18 @@ const int HeartbeatPattern[] = {
     1000 // Rest time before the next heartbeat
 };
 const int HeartbeatPatternLength = sizeof(HeartbeatPattern) / sizeof(HeartbeatPattern[0]);
-static const char *TAG = "Main";
 
 /**
  * @brief Function to change colors based on a timer callback
  */
 extern "C" void app_main()
 {        
+    // Ensure services are registered before creating ServiceMngr
+    // Note: __attribute__((constructor)) may not execute reliably in ESP-IDF/Xtensa GCC,
+    // so this manual call ensures registration happens. Registration is idempotent,
+    // so it's safe to call even if constructor already executed.
+    RegisterServices();
+    
     Log_RamOccupy("main", "service manager");        
     serviceMngr = Singleton<ServiceMngr, const char*, SharedBus::ServiceID>::
                     GetInstance(static_cast<const char*>
