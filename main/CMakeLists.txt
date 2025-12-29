@@ -3,7 +3,6 @@ file(GLOB INCLUDES)
 
 file(GLOB_RECURSE CPP_SOURCES "*.cpp")
 list(APPEND SOURCES ${CPP_SOURCES})
-list(APPEND INCLUDES "." "ServiceManager")
                                       
 idf_component_register(
     SRCS ${SOURCES} 
